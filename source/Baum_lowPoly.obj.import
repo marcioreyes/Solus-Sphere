@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/Baum_lowPoly.obj-d1698fd80a7687e8708953046e4543ca.mesh"
+
+[deps]
+
+files=[ "res://.import/Baum_lowPoly.obj-d1698fd80a7687e8708953046e4543ca.mesh" ]
+
+source_file="res://Baum_lowPoly.obj"
+dest_files=[ "res://.import/Baum_lowPoly.obj-d1698fd80a7687e8708953046e4543ca.mesh", "res://.import/Baum_lowPoly.obj-d1698fd80a7687e8708953046e4543ca.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
