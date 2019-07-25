@@ -1,55 +1,11 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://sky.hdr" type="Texture" id=1]
-[ext_resource path="res://[4K]Ground03/Ground03_rgh.jpg" type="Texture" id=2]
-[ext_resource path="res://[4K]Ground03/Ground03_col.jpg" type="Texture" id=3]
-[ext_resource path="res://house2.tscn" type="PackedScene" id=4]
-[ext_resource path="res://tscn/tree_lowpoly.tscn" type="PackedScene" id=5]
-[ext_resource path="res://[2K]Fabric21/Fabric21_col.jpg" type="Texture" id=6]
-[ext_resource path="res://RigidBody2D.gd" type="Script" id=7]
-[ext_resource path="res://[4K]Ground03/Ground03_disp.jpg" type="Texture" id=8]
-[ext_resource path="res://tscn/world.tscn" type="PackedScene" id=9]
-[ext_resource path="res://house3.tscn" type="PackedScene" id=10]
-[ext_resource path="res://tscn/purse.tscn" type="PackedScene" id=11]
-[ext_resource path="res://music/Space Sprinkles.ogg" type="AudioStream" id=12]
-[ext_resource path="res://[4K]Ground03/Ground03_nrm.jpg" type="Texture" id=13]
-[ext_resource path="res://tscn/tree.tscn" type="PackedScene" id=14]
-[ext_resource path="res://house1.tscn" type="PackedScene" id=15]
-[ext_resource path="res://house4.tscn" type="PackedScene" id=16]
+[ext_resource path="res://[4K]Ground03/Ground03_col.jpg" type="Texture" id=1]
 
-[sub_resource type="PanoramaSky" id=1]
-panorama = ExtResource( 1 )
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 1 )
 
-[sub_resource type="Environment" id=2]
-background_mode = 2
-background_sky = SubResource( 1 )
-ambient_light_color = Color( 1, 1, 1, 1 )
-ambient_light_energy = 0.0
-glow_intensity = 1.0
-glow_blend_mode = 1
-
-[sub_resource type="PhysicsMaterial" id=3]
-friction = 2.0
-
-[sub_resource type="SphereShape" id=4]
-radius = 100.0
-
-[sub_resource type="SpatialMaterial" id=5]
-albedo_texture = ExtResource( 3 )
-roughness_texture = ExtResource( 2 )
-roughness_texture_channel = 4
-normal_enabled = true
-normal_scale = 1.0
-normal_texture = ExtResource( 13 )
-depth_enabled = true
-depth_scale = 0.03
-depth_deep_parallax = false
-depth_flip_tangent = false
-depth_flip_binormal = false
-depth_texture = ExtResource( 8 )
-uv1_scale = Vector3( 3, 3, 3 )
-
-[sub_resource type="ArrayMesh" id=6]
+[sub_resource type="ArrayMesh" id=2]
 resource_name = "Icosphere.001"
 surfaces/0 = {
 "aabb": AABB( -1, -1, -1, 2, 2, 2 ),
@@ -58,153 +14,15 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 3840,
-"material": SubResource( 5 ),
+"material": SubResource( 1 ),
 "name": "mesh",
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 3426
 }
 
-[sub_resource type="PhysicsMaterial" id=7]
-bounce = 0.65
+[node name="planet" type="Spatial"]
 
-[sub_resource type="SpatialMaterial" id=8]
-albedo_texture = ExtResource( 6 )
-rim_enabled = true
-rim = 0.2
-rim_tint = 1.0
-
-[sub_resource type="SphereMesh" id=9]
-material = SubResource( 8 )
-
-[sub_resource type="SphereShape" id=10]
-
-[sub_resource type="SpatialMaterial" id=11]
-albedo_color = Color( 0, 0.858824, 1, 1 )
-metallic = 0.5
-roughness = 0.5
-rim_enabled = true
-rim = 1.0
-rim_tint = 0.5
-transmission_enabled = true
-transmission = Color( 0, 0.215686, 0.25098, 1 )
-proximity_fade_enable = true
-proximity_fade_distance = 15.0
-
-[sub_resource type="CylinderMesh" id=12]
-material = SubResource( 11 )
-top_radius = 2.0
-bottom_radius = 2.0
-height = 1.0
-
-[sub_resource type="CylinderShape" id=13]
-radius = 2.0
-
-[node name="Environment" type="WorldEnvironment"]
-environment = SubResource( 2 )
-
-[node name="cambase" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 8.19224, 0 )
-
-[node name="Camera" type="Camera" parent="cambase"]
-transform = Transform( 1, 0, 0, 0, 0.75268, -0.658386, 0, 0.658386, 0.75268, 0, -7.47063, 1.90735e-06 )
-far = 1.31613e+09
-
-[node name="DirectionalLight" type="DirectionalLight" parent="cambase/Camera"]
-transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0 )
-light_energy = 2.0
-light_indirect_energy = 2.0
-
-[node name="planet" type="StaticBody" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -100, 0 )
-physics_material_override = SubResource( 3 )
-
-[node name="CollisionShape" type="CollisionShape" parent="planet"]
-shape = SubResource( 4 )
-
-[node name="mesh" type="MeshInstance" parent="planet"]
-transform = Transform( 100.5, 0, 0, 0, 100.5, 0, 0, 0, 100.5, 0, 0, 0 )
-mesh = SubResource( 6 )
+[node name="Icosphere001" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
 material/0 = null
-
-[node name="ball" type="RigidBody" parent="."]
-physics_material_override = SubResource( 7 )
-custom_integrator = true
-contacts_reported = 1
-contact_monitor = true
-script = ExtResource( 7 )
-
-[node name="MeshInstance" type="MeshInstance" parent="ball"]
-mesh = SubResource( 9 )
-material/0 = null
-
-[node name="CollisionShape" type="CollisionShape" parent="ball"]
-shape = SubResource( 10 )
-
-[node name="OmniLight" type="OmniLight" parent="ball"]
-light_energy = 2.5
-light_indirect_energy = 2.5
-omni_range = 75.0
-
-[node name="trees(1)" type="Spatial" parent="."]
-
-[node name="tree_lowpoly" parent="trees(1)" instance=ExtResource( 5 )]
-transform = Transform( 0.7, 0, 0, 0, 0.634349, 0.295975, 0, -0.295975, 0.634349, 0, -8.08141, -39.1107 )
-
-[node name="tree_lowpoly2" parent="trees(1)" instance=ExtResource( 5 )]
-transform = Transform( 0.7, 0, 0, 0, 0.57877, 0.393732, 0, -0.393732, 0.57877, 0, -13.9226, -50.6609 )
-
-[node name="tree_lowpoly3" parent="trees(1)" instance=ExtResource( 5 )]
-transform = Transform( 0.7, 0, 0, 0, 0.634349, 0.295975, 0, -0.295975, 0.634349, 9.20826, -9.89686, -42.1626 )
-
-[node name="tree_lowpoly4" parent="trees(1)" instance=ExtResource( 5 )]
-transform = Transform( 0.7, 0, 0, 0, 0.57877, 0.393732, 0, -0.393732, 0.57877, 9.20826, -16.2663, -53.7127 )
-
-[node name="trees(1)2" type="Spatial" parent="."]
-
-[node name="tree1" parent="trees(1)2" instance=ExtResource( 14 )]
-transform = Transform( 0.922746, -0.385409, 0, 0.373494, 0.894218, 0.246732, -0.0950927, -0.227671, 0.969084, -25.9063, -5.21804, -17.4916 )
-
-[node name="tree2" parent="trees(1)2" instance=ExtResource( 14 )]
-transform = Transform( 0.975681, -0.219196, 0, 0.219196, 0.975681, 0, 0, 0, 1, -27.7133, -3.99838, 0 )
-
-[node name="tree3" parent="trees(1)2" instance=ExtResource( 14 )]
-transform = Transform( 0.987024, -0.160018, -0.01333, 0.160572, 0.983617, 0.0819387, 0, -0.0830159, 0.996548, -16.3231, -1.67409, -5.99058 )
-
-[node name="tree4" parent="trees(1)2" instance=ExtResource( 14 )]
-transform = Transform( 0.987551, -0.157298, 0.000104078, 0.157298, 0.987551, -0.000653425, 0, 0.000661661, 1, -10.1468, -1.3639, 10.3802 )
-
-[node name="house1" parent="." instance=ExtResource( 15 )]
-transform = Transform( 0.965678, -1.13536e-08, -0.25974, -0.25974, -4.22112e-08, -0.965678, 0, 1, -4.37114e-08, 24.7451, -1.67083, 0 )
-
-[node name="house2" parent="." instance=ExtResource( 4 )]
-transform = Transform( 0.970899, 0.0527219, -0.233614, -0.23949, 0.213737, -0.94708, 0, 0.975468, 0.220143, 23.6052, -5.78025, -26.1277 )
-
-[node name="house3" parent="." instance=ExtResource( 10 )]
-transform = Transform( 0.992822, -5.22791e-09, -0.119601, -0.113064, -0.326075, -0.938558, -0.0389988, 0.945344, -0.323734, 7.592, -3.64657, 28.8714 )
-
-[node name="house4" parent="." instance=ExtResource( 16 )]
-transform = Transform( 0.92349, 0.154254, 0.351244, 0.383623, -0.371333, -0.845545, 0, 0.915597, -0.402097, -30.9418, -14.7457, 42.7985 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
-autoplay = true
-
-[node name="purse" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.09301, 0.962491, 0 )
-
-[node name="world" parent="." instance=ExtResource( 9 )]
-transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 58.6081, -207.003 )
-
-[node name="transport" type="Area" parent="."]
-
-[node name="mesh" type="MeshInstance" parent="transport"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-mesh = SubResource( 12 )
-material/0 = null
-
-[node name="collision" type="CollisionShape" parent="transport"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
-shape = SubResource( 13 )
-[connection signal="body_entered" from="purse" to="ball" method="_on_purse_body_entered"]
-[connection signal="body_entered" from="transport" to="ball" method="_on_transport_body_entered"]
