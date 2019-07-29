@@ -7,6 +7,7 @@ const world1_mass: float = 2.303*pow(10, 7)
 const world2_mass: float = 8.558*pow(10, 6)
 const ball_mass: float = pow(2,1)#2
 var planet_mass = world1_mass
+var purse: int = 0
 func _ready():
 	planet = get_node("/root/Environment/planet")
 	get_node("/root/Environment/transport/").translation = (get_node("/root/Environment/planet").translation+get_node("/root/Environment/world").translation)/2
@@ -43,9 +44,9 @@ func _physics_process(_delta):
 	else:
 		move.y = 0
 
-func _on_purse_body_entered(_body):
-	get_node("/root/Environment/purse").hide()
-
+func purse():
+	purse += 1
+	get_node("/root/Environment/UI/RichTextLabel").set_bbcode("[img]purse.png[/img][font=font/font.res] " + str(purse) + "/7[/font]")
 
 func _on_transport_body_entered(body):
 	var id = get_node("/root/Environment/ball").get_instance_id()
@@ -57,3 +58,36 @@ func _on_transport_body_entered(body):
 		else:
 			planet = get_node("/root/Environment/planet")
 			planet_mass = world1_mass
+
+func _on_purse_body_entered(_body):
+	purse()
+	get_node("/root/Environment/purse").queue_free()
+
+func _on_purse2_body_entered(_body):
+	purse()
+	get_node("/root/Environment/purse2").queue_free()
+
+
+func _on_purse3_body_entered(_body):
+	purse()
+	get_node("/root/Environment/purse3").queue_free()
+
+
+func _on_purse4_body_entered(_body):
+	purse()
+	get_node("/root/Environment/purse4").queue_free()
+
+
+func _on_purse5_body_entered(_body):
+	purse()
+	get_node("/root/Environment/purse5").queue_free()
+
+
+func _on_purse6_body_entered(_body):
+	purse()
+	get_node("/root/Environment/purse6").queue_free()
+
+
+func _on_purse7_body_entered(_body):
+	purse()
+	get_node("/root/Environment/purse7").queue_free()

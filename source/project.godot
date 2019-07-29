@@ -28,4 +28,4 @@ window/size/fullscreen=true
 [rendering]
 
 quality/driver/driver_name="GLES2"
-quality/intended_usage/framebuffer_allocation=3
+quality/intended_usage/framebuffer_allocation.mobile=2
