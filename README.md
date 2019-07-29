@@ -1,5 +1,5 @@
 # Solus-Sphere - planet game
-This is the "official" repository Solus Sphere Project (made with Godot 3.1).
+This is the "official" repository of the Solus Sphere Project (made with Godot 3.1).
 
 You navigate a ball on different planets and complete levels.
 
