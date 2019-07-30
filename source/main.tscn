@@ -1,21 +1,22 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://sky.hdr" type="Texture" id=1]
 [ext_resource path="res://[4K]Ground03/Ground03_rgh.jpg" type="Texture" id=2]
 [ext_resource path="res://[4K]Ground03/Ground03_col.jpg" type="Texture" id=3]
-[ext_resource path="res://house4.tscn" type="PackedScene" id=4]
+[ext_resource path="res://tscn/tree.tscn" type="PackedScene" id=4]
 [ext_resource path="res://house1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://[2K]Fabric21/Fabric21_col.jpg" type="Texture" id=6]
 [ext_resource path="res://RigidBody2D.gd" type="Script" id=7]
 [ext_resource path="res://[4K]Ground03/Ground03_disp.jpg" type="Texture" id=8]
 [ext_resource path="res://tscn/purse.tscn" type="PackedScene" id=9]
-[ext_resource path="res://tscn/tree.tscn" type="PackedScene" id=10]
-[ext_resource path="res://tscn/tree_lowpoly.tscn" type="PackedScene" id=11]
+[ext_resource path="res://tscn/world.tscn" type="PackedScene" id=10]
+[ext_resource path="res://tscn/moon.tscn" type="PackedScene" id=11]
 [ext_resource path="res://music/Space Sprinkles.ogg" type="AudioStream" id=12]
 [ext_resource path="res://[4K]Ground03/Ground03_nrm.jpg" type="Texture" id=13]
-[ext_resource path="res://house3.tscn" type="PackedScene" id=14]
-[ext_resource path="res://tscn/world.tscn" type="PackedScene" id=15]
-[ext_resource path="res://house2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://tscn/tree_lowpoly.tscn" type="PackedScene" id=14]
+[ext_resource path="res://house3.tscn" type="PackedScene" id=15]
+[ext_resource path="res://house4.tscn" type="PackedScene" id=16]
+[ext_resource path="res://house2.tscn" type="PackedScene" id=17]
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 1 )
@@ -143,42 +144,42 @@ omni_range = 75.0
 
 [node name="trees(1)" type="Spatial" parent="."]
 
-[node name="tree_lowpoly" parent="trees(1)" instance=ExtResource( 11 )]
+[node name="tree_lowpoly" parent="trees(1)" instance=ExtResource( 14 )]
 transform = Transform( 0.7, 0, 0, 0, 0.634349, 0.295975, 0, -0.295975, 0.634349, 0, -8.08141, -39.1107 )
 
-[node name="tree_lowpoly2" parent="trees(1)" instance=ExtResource( 11 )]
+[node name="tree_lowpoly2" parent="trees(1)" instance=ExtResource( 14 )]
 transform = Transform( 0.7, 0, 0, 0, 0.57877, 0.393732, 0, -0.393732, 0.57877, 0, -13.9226, -50.6609 )
 
-[node name="tree_lowpoly3" parent="trees(1)" instance=ExtResource( 11 )]
+[node name="tree_lowpoly3" parent="trees(1)" instance=ExtResource( 14 )]
 transform = Transform( 0.7, 0, 0, 0, 0.634349, 0.295975, 0, -0.295975, 0.634349, 9.20826, -9.89686, -42.1626 )
 
-[node name="tree_lowpoly4" parent="trees(1)" instance=ExtResource( 11 )]
+[node name="tree_lowpoly4" parent="trees(1)" instance=ExtResource( 14 )]
 transform = Transform( 0.7, 0, 0, 0, 0.57877, 0.393732, 0, -0.393732, 0.57877, 9.20826, -16.2663, -53.7127 )
 
 [node name="trees(1)2" type="Spatial" parent="."]
 
-[node name="tree1" parent="trees(1)2" instance=ExtResource( 10 )]
+[node name="tree1" parent="trees(1)2" instance=ExtResource( 4 )]
 transform = Transform( 0.922746, -0.385409, 0, 0.373494, 0.894218, 0.246732, -0.0950927, -0.227671, 0.969084, -25.9063, -5.21804, -17.4916 )
 
-[node name="tree2" parent="trees(1)2" instance=ExtResource( 10 )]
+[node name="tree2" parent="trees(1)2" instance=ExtResource( 4 )]
 transform = Transform( 0.975681, -0.219196, 0, 0.219196, 0.975681, 0, 0, 0, 1, -27.7133, -3.99838, 0 )
 
-[node name="tree3" parent="trees(1)2" instance=ExtResource( 10 )]
+[node name="tree3" parent="trees(1)2" instance=ExtResource( 4 )]
 transform = Transform( 0.987024, -0.160018, -0.01333, 0.160572, 0.983617, 0.0819387, 0, -0.0830159, 0.996548, -16.3231, -1.67409, -5.99058 )
 
-[node name="tree4" parent="trees(1)2" instance=ExtResource( 10 )]
+[node name="tree4" parent="trees(1)2" instance=ExtResource( 4 )]
 transform = Transform( 0.987551, -0.157298, 0.000104078, 0.157298, 0.987551, -0.000653425, 0, 0.000661661, 1, -10.1468, -1.3639, 10.3802 )
 
 [node name="house1" parent="." instance=ExtResource( 5 )]
 transform = Transform( 0.965678, -1.13536e-08, -0.25974, -0.25974, -4.22112e-08, -0.965678, 0, 1, -4.37114e-08, 24.7451, -1.67083, 0 )
 
-[node name="house2" parent="." instance=ExtResource( 16 )]
+[node name="house2" parent="." instance=ExtResource( 17 )]
 transform = Transform( 0.970899, 0.0527219, -0.233614, -0.23949, 0.213737, -0.94708, 0, 0.975468, 0.220143, 23.6052, -5.78025, -26.1277 )
 
-[node name="house3" parent="." instance=ExtResource( 14 )]
+[node name="house3" parent="." instance=ExtResource( 15 )]
 transform = Transform( 0.992822, -5.22791e-09, -0.119601, -0.113064, -0.326075, -0.938558, -0.0389988, 0.945344, -0.323734, 7.592, -3.64657, 28.8714 )
 
-[node name="house4" parent="." instance=ExtResource( 4 )]
+[node name="house4" parent="." instance=ExtResource( 16 )]
 transform = Transform( 0.92349, 0.154254, 0.351244, 0.383623, -0.371333, -0.845545, 0, 0.915597, -0.402097, -30.9418, -14.7457, 42.7985 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
@@ -206,7 +207,16 @@ transform = Transform( -0.0740462, -0.0461968, 0.996184, 0.186338, 0.980693, 0.0
 [node name="purse7" parent="." instance=ExtResource( 9 )]
 transform = Transform( -0.375544, 0.680435, 0.629266, 0.903938, 0.418801, 0.0866112, -0.204604, 0.601343, -0.772349, 32.1409, 83.9387, -177.679 )
 
-[node name="world" parent="." instance=ExtResource( 15 )]
+[node name="purse8" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.469294, -0.882593, 0.0281323, -0.308425, 0.193682, 0.931323, -0.827428, 0.428388, -0.363107, -255.491, 109.998, 23.035 )
+
+[node name="purse9" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.942401, 0.0710098, -0.326861, -0.275489, -0.718993, 0.638086, -0.189701, 0.69138, 0.697143, -206.543, 52.4296, 43.4543 )
+
+[node name="purse10" parent="." instance=ExtResource( 9 )]
+transform = Transform( -0.910334, 0.406389, -0.078361, 0.310891, 0.546466, -0.777638, -0.273201, -0.732272, -0.62381, -167.535, 133.582, -29.8223 )
+
+[node name="world" parent="." instance=ExtResource( 10 )]
 transform = Transform( 50, 0, 0, 0, 50, 0, 0, 0, 50, 0, 58.6081, -207.003 )
 
 [node name="transport" type="Area" parent="."]
@@ -216,6 +226,17 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 11 )
 
 [node name="mesh" type="MeshInstance" parent="transport"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="transport2" type="Area" parent="."]
+
+[node name="collision" type="CollisionShape" parent="transport2"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 11 )
+
+[node name="mesh" type="MeshInstance" parent="transport2"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 mesh = SubResource( 13 )
 material/0 = null
@@ -233,11 +254,14 @@ __meta__ = {
 margin_right = 742.0
 margin_bottom = 147.0
 bbcode_enabled = true
-bbcode_text = "[img]purse.png[/img][font=font/font.res] 0/7[/font]"
-text = " 0/7"
+bbcode_text = "[img]purse.png[/img][font=font/font.res] 0/10[/font]"
+text = " 0/10"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="moon" parent="." instance=ExtResource( 11 )]
+transform = Transform( 60, 0, 0, 0, 60, 0, 0, 0, 60, -201.544, 95.2698, 0 )
 [connection signal="body_entered" from="purse" to="ball" method="_on_purse_body_entered"]
 [connection signal="body_entered" from="purse2" to="ball" method="_on_purse2_body_entered"]
 [connection signal="body_entered" from="purse3" to="ball" method="_on_purse3_body_entered"]
@@ -245,4 +269,8 @@ __meta__ = {
 [connection signal="body_entered" from="purse5" to="ball" method="_on_purse5_body_entered"]
 [connection signal="body_entered" from="purse6" to="ball" method="_on_purse6_body_entered"]
 [connection signal="body_entered" from="purse7" to="ball" method="_on_purse7_body_entered"]
+[connection signal="body_entered" from="purse8" to="ball" method="_on_purse8_body_entered"]
+[connection signal="body_entered" from="purse9" to="ball" method="_on_purse9_body_entered"]
+[connection signal="body_entered" from="purse10" to="ball" method="_on_purse10_body_entered"]
 [connection signal="body_entered" from="transport" to="ball" method="_on_transport_body_entered"]
+[connection signal="body_entered" from="transport2" to="ball" method="_on_transport2_body_entered"]
